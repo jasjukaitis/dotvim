@@ -17,6 +17,8 @@ set backspace=indent,eol,start
 set smartindent
 set smarttab
 set fileencodings=utf-8,latin-1
+set laststatus=2
+set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [pos=%04l,%04v][%p%%]\ [len=%L]
 set number
 set noeol
 set grepprg=ack
