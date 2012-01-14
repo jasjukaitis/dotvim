@@ -35,8 +35,9 @@ colorscheme ir_black
 let g:SuperTabDefaultCompletionType = "context"
 
 " Mappings
+let mapleader = ","
 map <leader>td <Plug>TaskList
-nmap <leader>a <Esc>:Ack!
+nmap <leader>a <Esc>:Ack! 
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 
 if has("gui_running")
