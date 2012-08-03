@@ -2,7 +2,7 @@ let filename = '.gitignore'
 if filereadable(filename)
 	let igstring = ''
 	for oline in readfile(filename)
-		let line = substitute(oline, '\s|\n|\r', '', "g"substitute)
+		let line = substitute(oline, '\s|\n|\r', '', "g")
 		if line =~ '^#' | con | endif
 		if line == '' | con  | endif
 		if line =~ '^!' | con  | endif
@@ -10,5 +10,5 @@ if filereadable(filename)
 		let igstring .= "," . line
 	endfor
 	let execstring = "set wildignore=".substitute(igstring, '^,', '', "g")
-	execute executexecstring
+	execute execstring
 endif
