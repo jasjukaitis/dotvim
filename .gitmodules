@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/xmledit"]
 	path = .vim/bundle/xmledit
 	url = https://github.com/sukima/xmledit.git
+[submodule ".vim/bundle/command-t"]
+	path = .vim/bundle/command-t
+	url = https://github.com/wincent/Command-T.git
