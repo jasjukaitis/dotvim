@@ -43,6 +43,7 @@ colorscheme ir_black
 let g:SuperTabDefaultCompletionType = "context"
 " This is not very good...
 let $DJANGO_SETTINGS_MODULE='settings'
+let g:pymode_breakpoint = 0
 
 " Mappings
 let mapleader = ","
