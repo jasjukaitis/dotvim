@@ -14,6 +14,7 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 autocmd FileType javascript set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
+autocmd FileType less set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
 
 " General options
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -43,12 +44,15 @@ colorscheme ir_black
 let g:SuperTabDefaultCompletionType = "context"
 " This is not very good...
 let $DJANGO_SETTINGS_MODULE='settings'
+" Python-mode settings
 let g:pymode_breakpoint = 0
+let g:pymode_lint_write = 0
+let g:pymode_folding = 0
 
 " Mappings
 let mapleader = ","
 map <leader>td <Plug>TaskList
-map <leader>a <Esc>:Ack!
+map <leader>a <Esc>:Ack! 
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
 map <silent> ,/ :nohlsearch<CR>
 map <leader>df :Gdiff<CR>
@@ -56,6 +60,8 @@ imap <leader>bp <ESC>:call InsertLine('o')<CR>
 imap <leader>bP <ESC>:call InsertLine('O')<CR>
 map <leader>bp :call InsertLine('o')<CR>
 map <leader>bP :call InsertLine('O')<CR>
+map <leader>e <Esc>:e 
+map <leader>E <Esc>:e .<CR>
 
 if has("gui_running")
 	set guioptions=egmrt
