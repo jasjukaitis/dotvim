@@ -62,6 +62,8 @@ map <leader>bp :call InsertLine('o')<CR>
 map <leader>bP :call InsertLine('O')<CR>
 map <leader>e <Esc>:e 
 map <leader>E <Esc>:e .<CR>
+map <leader>gt :RopeGoToDefinition<CR>
+map <leader>rn :RopeRename<CR>
 
 if has("gui_running")
 	set guioptions=egmrt
