@@ -18,6 +18,7 @@ autocmd FileType less set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifun
 
 " General options
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight clear SignColumn
 match OverLength /\%81v.\+/
 
 set hidden
@@ -64,26 +65,18 @@ map <leader>e <Esc>:e
 map <leader>E <Esc>:e .<CR>
 map <leader>gt :RopeGoToDefinition<CR>
 map <leader>rn :RopeRename<CR>
+map <leader>tb <Esc>:Tube 
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 if has("gui_running")
 	set guioptions=egmrt
 	let macvim_hig_shift_movement = 1
 	set guifont=Monaco:h13
+	let g:tube_terminal = 'iterm'
 endif
-
-function! SuperCleverTab()
-	if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-		return "\"
-	else
-		if &omnifunc != ''
-			return "\\"
-		elseif &dictionary != ''
-			return "\"
-		else
-			return "\"
-		endif
-	endif
-endfunction
 
 " Function to activate a virtualenv in the embedded interpreter for
 " omnicomplete and other things like that.
@@ -113,8 +106,6 @@ function! InsertLine(insert)
   let trace = expand('import ipdb; ipdb.set_trace()')
   execute 'normal '.a:insert.trace
 endfunction
-
-inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 " Add custom snippets
 let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/snippets/"
