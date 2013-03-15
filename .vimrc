@@ -16,11 +16,6 @@ autocmd FileType html set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifun
 autocmd FileType css set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
 autocmd FileType less set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
 
-" General options
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-highlight clear SignColumn
-match OverLength /\%81v.\+/
-
 set hidden
 set backspace=indent,eol,start
 set smartindent
@@ -109,3 +104,8 @@ endfunction
 
 " Add custom snippets
 let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/snippets/"
+
+" General options
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight clear SignColumn
+match OverLength /\%81v.\+/
