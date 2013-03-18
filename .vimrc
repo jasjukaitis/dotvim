@@ -10,12 +10,6 @@ call pathogen#helptags()
 filetype plugin indent on
 syntax on
 
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
-autocmd FileType less set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
-
 set hidden
 set backspace=indent,eol,start
 set smartindent
@@ -45,12 +39,13 @@ let g:pymode_breakpoint = 0
 let g:pymode_lint_write = 0
 let g:pymode_folding = 0
 
+highlight clear SignColumn
+
 " Mappings
 let mapleader = ","
 map <leader>td <Plug>TaskList
 map <leader>a <Esc>:Ack! 
-map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
-map <silent> ,/ :nohlsearch<CR>
+map <silent>,/ :nohlsearch<CR>
 map <leader>df :Gdiff<CR>
 imap <leader>bp <ESC>:call InsertLine('o')<CR>
 imap <leader>bP <ESC>:call InsertLine('O')<CR>
@@ -58,9 +53,8 @@ map <leader>bp :call InsertLine('o')<CR>
 map <leader>bP :call InsertLine('O')<CR>
 map <leader>e <Esc>:e 
 map <leader>E <Esc>:e .<CR>
-map <leader>gt :RopeGoToDefinition<CR>
-map <leader>rn :RopeRename<CR>
 map <leader>tb <Esc>:Tube 
+map <leader>gb <Esc>:Gblame<CR>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -105,7 +99,11 @@ endfunction
 " Add custom snippets
 let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/snippets/"
 
-" General options
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-highlight clear SignColumn
-match OverLength /\%81v.\+/
+autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType python match OverLength /\%81v.\+/
+autocmd FileType python set expandtab shiftwidth=4 tabstop=4 softtabstop=4 omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=htmlcomplete#CompleteTags
+autocmd FileType htmldjango set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
+autocmd FileType less set expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=csscomplete#CompleteCSS
