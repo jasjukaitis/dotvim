@@ -38,6 +38,7 @@ let $DJANGO_SETTINGS_MODULE='settings'
 let g:pymode_breakpoint = 0
 let g:pymode_lint_write = 0
 let g:pymode_folding = 0
+let g:pymode_indent = 0
 
 highlight clear SignColumn
 
